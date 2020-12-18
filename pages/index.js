@@ -157,8 +157,8 @@ const Page = styled(motion.div)`
         .coming-soon {
             font-size: 16px;
             font-weight: 500;
+            text-transform: uppercase;
             @media (min-width: 768px) {
-                font-size: 20px;
             }
         }
     }
