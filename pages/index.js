@@ -14,14 +14,21 @@ const Home = () => {
         visible: {
             opacity: 1,
             transition: {
-                easings: "easeInOut",
+                easings: "easeIn",
                 staggerChildren: 1,
             },
         },
     };
     const sloganVariants = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1 },
+        visible: {
+            opacity: 1,
+            transform: {
+                easings: "easeInOut",
+                duration: 2,
+                delay: 5,
+            },
+        },
     };
     const comingSoonWrapperVariant = {
         hidden: { opacity: 0 },
