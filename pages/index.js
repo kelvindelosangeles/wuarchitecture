@@ -14,7 +14,8 @@ const Home = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.7,
+                easings: "easeInOut",
+                staggerChildren: 1,
             },
         },
     };
@@ -54,11 +55,11 @@ const Home = () => {
                 transition: {
                     duration: 1,
                     easings: "easeIn",
-                    delay: 1.3,
+                    // delay: 1.3,
                 },
             });
             await SloganControl.start("visible");
-            await SloganControl.start({ opacity: 0, transition: { duration: 1 } });
+            await SloganControl.start({ opacity: 0, transition: { duration: 1, delay: 1 } });
             await ComingSoonControl.start("visible");
         };
 
@@ -70,8 +71,12 @@ const Home = () => {
             <BlackOverlay initial={{ y: "-100%" }} animate={blackOverlayControl} />
             <Slogan initial={"hidden"} animate={SloganControl} variants={sloganWrapperVariants}>
                 <motion.p variants={sloganVariants}>Design</motion.p>
-                <motion.p variants={sloganVariants}>With</motion.p>
-                <motion.p variants={sloganVariants}>Us</motion.p>
+                <motion.p variants={sloganVariants}>
+                    <strong>With Us</strong>
+                </motion.p>
+                {/* <motion.p variants={sloganVariants}>
+                    <strong>Us</strong>
+                </motion.p> */}
             </Slogan>
             <Page initial={"hidden"} variants={comingSoonWrapperVariant} animate={ComingSoonControl}>
                 <main>
@@ -105,7 +110,7 @@ const BlackOverlay = styled(motion.div)`
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
-    background-color: black;
+    background-color: #191919;
     z-index: 1;
 `;
 const Slogan = styled(motion.div)`
